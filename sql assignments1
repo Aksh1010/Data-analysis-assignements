@@ -1,0 +1,28 @@
+create database shop
+use shop
+
+create table shoping_history(
+product varchar(25) not null,
+quantity int(9) not null,
+unit_price int(9) not null
+);
+
+
+select * from shoping_history
+
+insert into shoping_history values('milk','3','10'),
+insert into shoping_history values('bread','8','15');
+insert into shoping_history values('butter','3','12');
+insert into shoping_history values('buscuits','4','20');
+insert into shoping_history values('toast','5','15');
+insert into shoping_history values('cheese','5','14');
+insert into shoping_history values('chocolates','3','15');
+insert into shoping_history values('toffy','4','15');
+insert into shoping_history values('wafers','4','15');
+insert into shoping_history values('rice','3','14');
+
+select * from shoping_history
+
+SELECT product,
+ quantity*unit_price  AS total_price
+FROM shoping_history;
