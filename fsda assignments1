@@ -28,3 +28,49 @@ select * from shoping_history
 SELECT product,
  quantity*unit_price  AS total_price
 FROM shoping_history;
+
+
+
+
+                                                         TASK 2
+                                                         
+                                                         
+                                                         
+create database TC_company
+use TC_company
+
+create table phones(
+name varchar(25) not null unique,
+phoneno int(11) not null unique
+);
+
+create table calls(
+id int(11) not null,
+caller int(11) not null,
+calee int(11) not null,
+duration int(11) not null unique
+);
+
+select * from calls
+
+insert into phones values ('jack' , '1234');
+insert into phones values ('lena' , '3333');
+insert into phones values ('mark' , '9999');
+insert into phones values ('anna' , '7582');
+
+insert into calls values ('25','1234','7582',9);
+insert into calls values ('7','9999','7582',1);
+insert into calls values ('18','9999','3333',4);
+insert into calls values ('2','7582','3333',3);
+insert into calls values ('3','3333','1234','2');
+insert into calls values ('21','3333','1234','5');
+
+SELECT name
+FROM phones JOIN calls ON phones.phoneno = calls.caller
+UNION 
+SELECT name
+FROM phones JOIN calls ON phones.phoneno = calls.calee
+GROUP BY name
+HAVING SUM(duration) > 10; 
+                                                         
+                                                        
