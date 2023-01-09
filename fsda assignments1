@@ -72,5 +72,89 @@ SELECT name
 FROM phones JOIN calls ON phones.phoneno = calls.calee
 GROUP BY name
 HAVING SUM(duration) > 10; 
-                                                         
+                                                                    
+                                                                    
+                                                                    
+                                                                    Task 3
+                                                                    
+                                                                    
+create database bank
+use bank
+
+create table transactions(
+Amount int not null,
+date date not null);
+
+INSERT INTO Transactions(Amount,Date) values (1000,'2020-01-06');
+INSERT INTO Transactions(Amount,Date) values (-10,'2020-01-14');
+INSERT INTO Transactions(Amount,Date) values (-75,'2020-01-20');
+INSERT INTO Transactions(Amount,Date) values (-5,'2020-01-25');
+INSERT INTO Transactions(Amount,Date) values (-4,'2020-01-29');
+INSERT INTO Transactions(Amount,Date) values (2000,'2020-03-10');
+INSERT INTO Transactions(Amount,Date) values (-75,'2020-03-12');
+INSERT INTO Transactions(Amount,Date) values (-20,'2020-03-15');
+INSERT INTO Transactions(Amount,Date) values (-40,'2020-03-15');
+INSERT INTO Transactions(Amount,Date) values (-50,'2020-03-17');
+INSERT INTO Transactions(Amount,Date) values (-200,'2020-10-10');
+INSERT INTO Transactions(Amount,Date) values (-200,'2020-10-10');
+
+select * from Transactions
+
+Select sum(Amount) - 5*(11-
+(select count  from
+(select Date,sum(amount) from Transactions
+where amount<0 group by Date having Count(amount)>=3 And Sum(amount)>=-100))) as balance from Transactions; 
+
+2 question..
+
+CREATE TABLE Transactions2 (
+  Amount INTEGER NOT NULL,
+  Date DATE NOT NULL
+  );
+
+INSERT INTO Transactions2(Amount,Date) values (1,'2020-06-29');
+INSERT INTO Transactions2(Amount,Date) values (35,'2020-02-20');
+INSERT INTO Transactions2(Amount,Date) values (-50,'2020-02-03');
+INSERT INTO Transactions2(Amount,Date) values (-1,'2020-02-26');
+INSERT INTO Transactions2(Amount,Date) values (-200,'2020-08-01');
+INSERT INTO Transactions2(Amount,Date) values (-44,'2020-02-07');
+INSERT INTO Transactions2(Amount,Date) values (-5,'2020-02-25');
+INSERT INTO Transactions2(Amount,Date) values (1,'2020-06-29');
+INSERT INTO Transactions2(Amount,Date) values (1,'2020-06-29');
+INSERT INTO Transactions2(Amount,Date) values (-100,'2020-12-29');
+INSERT INTO Transactions2(Amount,Date) values (-100,'2020-12-30');
+INSERT INTO Transactions2(Amount,Date) values (-100,'2020-12-31');
+
+select * from Transactions2
+
+Select
+SUM(Amount) - 5*(10-
+(select count(*) from
+(select Date,sum(amount) from Transactions2
+where amount<0 group by Date having Count(amount)>=3 And Sum(amount)>=-100))) 
+as balance from Transactions2
+
+
+3rd question 
+
+CREATE TABLE Transactions3 (
+  Amount INTEGER NOT NULL,
+  Date DATE NOT NULL
+  );
+
+
+INSERT INTO Transactions3(Amount,Date) values (6000,'2020-04-03');
+INSERT INTO Transactions3(Amount,Date) values (5000,'2020-04-02');
+INSERT INTO Transactions3(Amount,Date) values (4000,'2020-04-01');
+INSERT INTO Transactions3(Amount,Date) values (3000,'2020-03-01');
+INSERT INTO Transactions3(Amount,Date) values (2000,'2020-02-01');
+INSERT INTO Transactions3(Amount,Date) values (1000,'2020-01-01');
+
+select * from Transactions3
+
+> Select
+SUM(Amount) - 5*(12-
+(select count(*) from
+(select Date,sum(amount) from Transactions3
+where amount<0 group by Date))) as balance from Transactions3
                                                         
